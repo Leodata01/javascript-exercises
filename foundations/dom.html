@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!-- The DOM -->
+  <body>
+    <h1>THE TITLE OF YOUR WEBPAGE</h1>
+    <div id="container">
+      <div class="content">This is the glorious text-content!</div>
+      <button onclick="alert('hello world')">Click me</button>
+      <button id="btn">Click me 2</button>
+      <button id="btndeux">click me 3</button>
+    </div>
+    <script>
+      const buttons = document.querySelectorAll("button");
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.target.style.backgroundColor = "pink";
+        });
+      });
+      // button
+      const btn = document.querySelector("#btn");
+      btn.onclick = () => alert("hello 22222");
+
+      const btn3 = document.querySelector("#btndeux");
+      btn3.addEventListener("click", (e) => {
+        alert("helloooo 3333");
+        console.log((e.target.style.backgroundColor = "blue"));
+      });
+
+      const container = document.querySelector("#container");
+
+      const p = document.createElement("p");
+      p.textContent = "Hey i'm red ";
+      p.style.color = "red";
+
+      const h3 = document.createElement("h3");
+      h3.textContent = "I'm blue !!";
+      h3.style.color = "blue";
+
+      const containerChild = document.createElement("div");
+      containerChild.style.backgroundColor = "pink";
+      containerChild.style.border = "solid";
+
+      const h1 = document.createElement("h1");
+      h1.textContent = "I'm in a div";
+
+      const p2 = document.createElement("p");
+      p2.textContent = "Me Too";
+
+      containerChild.appendChild(h1);
+      containerChild.appendChild(p2);
+
+      container.appendChild(p);
+      container.appendChild(h3);
+      container.appendChild(containerChild);
+    </script>
+  </body>
+</html>
